@@ -23,8 +23,8 @@ import { DbzService } from './services/dbz.service';
     CommonModule,
     FormsModule
   ],
-  providers: [
-    DbzService
-  ]
+  // providers: [
+  //   DbzService
+  // ]
 })
 export class DbzModule { }

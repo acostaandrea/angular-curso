@@ -9,36 +9,25 @@ import { DbzService } from '../services/dbz.service';
 })
 export class AgregarComponent {
 
-  @Input() nuevo: Personaje = {
-    nombre:'',
+  @Output()
+  public onNewCharacter: EventEmitter<Personaje> = new EventEmitter();
+
+  public character: Personaje = {
+    nombre: '',
     poder: 0
-  }
+  };
 
-  constructor (private dbzService: DbzService){
+  emitCharacter():void {
 
-  }
+    if ( this.character.nombre.length === 0 ) return;
 
-  // @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
-  
-  agregar(){
+    this.onNewCharacter.emit(this.character);
 
-    if(this.nuevo.nombre.trim().length ===0){return}
-    
-    //  this.onNuevoPersonaje.emit(this.nuevo);
-
-    this.dbzService.agregarPersonaje(this.nuevo);
-
-     this.nuevo ={
-      nombre:'',
-      poder: 0
-     }
-
-
+    this.character = { nombre: '', poder: 0 };
   }
 
 
 
-  
   }
 
 

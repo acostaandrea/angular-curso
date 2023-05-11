@@ -4,16 +4,16 @@
 
 <div class="row">
     <div class="col">
-        <app-personajes>
+        <app-personajes [personajes] = "characters" (onDelete)="onDeleteCharacter($event)">
 
         </app-personajes>
-        
+
     </div>
 
     <div class="col">
-        <app-agregar 
-        [nuevo] = "nuevo"
-        
+        <app-agregar
+            (onNewCharacter)="onNewCharacter($event)"
+
         ></app-agregar>
     </div>
 </div>
